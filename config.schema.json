@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "合同审查Skill配置模板",
+  "description": "用于配置合同审查Skill的公司信息和审核标准，支持多公司复用",
+  "type": "object",
+  "properties": {
+    "company": {
+      "type": "object",
+      "description": "公司基本信息",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "公司简称，如'CSDN'、'华为'",
+          "examples": ["CSDN", "华为", "阿里"]
+        },
+        "legal_name": {
+          "type": "string",
+          "description": "公司全称，用于合同匹配识别'我方'",
+          "examples": ["北京创新乐知网络技术有限公司", "华为技术有限公司"]
+        },
+        "short_name": {
+          "type": "string",
+          "description": "公司简称（用于显示）"
+        },
+        "entities": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "关联公司列表，用于识别合同中的'我方'。包括母公司、子公司、关联品牌"
+        },
+        "author_name": {
+          "type": "string",
+          "description": "修订痕迹文档的作者名称，如'CSDN合同审查'",
+          "default": "合同审查"
+        },
+        "logo_text": {
+          "type": "string",
+          "description": "审核工作台的品牌显示文字",
+          "default": "法务"
+        },
+        "brands": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "公司品牌列表"
+        }
+      },
+      "required": ["name", "legal_name", "entities"]
+    },
+    "standards": {
+      "type": "object",
+      "description": "审核标准参数",
+      "properties": {
+        "party_a": {
+          "type": "object",
+          "description": "我方为甲方（采购方）时的审核标准",
+          "properties": {
+            "role_name": {"type": "string", "default": "甲方（采购方）"},
+            "late_payment_penalty_rate": {
+              "type": "string",
+              "description": "逾期付款违约金比例（文字表述），如'万分之三'",
+              "examples": ["万分之三", "万分之五", "千分之一"]
+            },
+            "late_payment_penalty_rate_value": {
+              "type": "number",
+              "description": "违约金比例数值（用于计算），如0.0003表示万分之三"
+            },
+            "late_payment_penalty_cap": {
+              "type": "string",
+              "description": "违约金上限（文字表述），如'10%'"
+            },
+            "late_payment_penalty_cap_value": {
+              "type": "number",
+              "description": "违约金上限数值"
+            },
+            "acceptance_rectification_days": {
+              "type": "integer",
+              "description": "验收整改期限（天数）",
+              "default": 3
+            },
+            "confidentiality_years": {
+              "type": "integer",
+              "description": "保密期限（年）",
+              "default": 3
+            },
+            "confidentiality_penalty": {
+              "type": "string",
+              "description": "保密违约金比例"
+            },
+            "quality_breach_penalty": {
+              "type": "string",
+              "description": "质量违约金比例"
+            },
+            "jurisdiction": {
+              "type": "string",
+              "description": "管辖法院偏好",
+              "default": "甲方所在地法院"
+            },
+            "ip_ownership": {
+              "type": "string",
+              "description": "知识产权归属偏好",
+              "default": "归甲方"
+            }
+          }
+        },
+        "party_b": {
+          "type": "object",
+          "description": "我方为乙方（销售方）时的审核标准",
+          "properties": {
+            "role_name": {"type": "string", "default": "乙方（销售方）"},
+            "late_payment_penalty_rate": {
+              "type": "string",
+              "description": "要求对方的逾期付款违约金比例"
+            },
+            "late_payment_penalty_rate_value": {
+              "type": "number",
+              "description": "违约金比例数值"
+            },
+            "late_payment_termination_days": {
+              "type": "integer",
+              "description": "逾期多少天后可单方解除合同",
+              "default": 15
+            },
+            "breach_penalty_cap": {
+              "type": "string",
+              "description": "我方违约金上限"
+            },
+            "breach_penalty_cap_value": {
+              "type": "number",
+              "description": "违约金上限数值"
+            },
+            "acceptance_days": {
+              "type": "integer",
+              "description": "要求对方验收期限",
+              "default": 3
+            },
+            "confidentiality_years": {
+              "type": "integer",
+              "description": "保密期限（年）",
+              "default": 2
+            },
+            "jurisdiction": {
+              "type": "string",
+              "description": "管辖法院偏好",
+              "default": "乙方所在地法院"
+            },
+            "ip_ownership_default": {
+              "type": "string",
+              "description": "未约定时知识产权归属",
+              "default": "归乙方"
+            }
+          }
+        }
+      }
+    },
+    "redlines": {
+      "type": "object",
+      "description": "红线条款规则",
+      "properties": {
+        "party_a": {
+          "type": "array",
+          "description": "甲方视角的红线条款",
+          "items": {
+            "type": "object",
+            "properties": {
+              "clause": {"type": "string", "description": "条款名称"},
+              "trigger": {"type": "string", "description": "触发条件"},
+              "severity": {"type": "string", "enum": ["high", "medium", "low"]},
+              "action": {"type": "string", "description": "建议修改内容"}
+            }
+          }
+        },
+        "party_b": {
+          "type": "array",
+          "description": "乙方视角的红线条款"
+        }
+      }
+    },
+    "market_benchmarks": {
+      "type": "object",
+      "description": "市场基准对比标准（通用）"
+    },
+    "formats": {
+      "type": "object",
+      "description": "格式相关配置"
+    },
+    "contract_types": {
+      "type": "object",
+      "description": "合同类型映射"
+    },
+    "output": {
+      "type": "object",
+      "description": "输出文件配置"
+    }
+  },
+  "required": ["company", "standards"]
+}

@@ -1,0 +1,119 @@
+{
+  "company": {
+    "name": "CSDN",
+    "legal_name": "北京创新乐知网络技术有限公司",
+    "short_name": "CSDN",
+    "entities": [
+      "北京创新乐知网络技术有限公司",
+      "涛伯开源（深圳）科技有限公司",
+      "涛伯开源(深圳)科技有限公司",
+      "人工智能6S店",
+      "CSDN",
+      "GitCode"
+    ],
+    "author_name": "CSDN合同审查",
+    "logo_text": "CSDN法务",
+    "brands": ["CSDN", "GitCode", "人工智能6S店"]
+  },
+  "standards": {
+    "party_a": {
+      "role_name": "甲方（采购方）",
+      "role_description": "我方为采购方/付款方",
+      "late_payment_penalty_rate": "万分之三",
+      "late_payment_penalty_rate_value": 0.0003,
+      "late_payment_penalty_cap": "10%",
+      "late_payment_penalty_cap_value": 0.1,
+      "acceptance_rectification_days": 3,
+      "confidentiality_years": 3,
+      "confidentiality_penalty": "10%",
+      "quality_breach_penalty": "10%",
+      "jurisdiction": "甲方所在地法院",
+      "ip_ownership": "归甲方"
+    },
+    "party_b": {
+      "role_name": "乙方（销售方）",
+      "role_description": "我方为销售方/收款方",
+      "late_payment_penalty_rate": "千分之五",
+      "late_payment_penalty_rate_value": 0.005,
+      "late_payment_termination_days": 15,
+      "breach_penalty_cap": "30%",
+      "breach_penalty_cap_value": 0.3,
+      "acceptance_days": 3,
+      "confidentiality_years": 2,
+      "jurisdiction": "乙方所在地法院",
+      "ip_ownership_default": "未约定的归乙方"
+    }
+  },
+  "redlines": {
+    "party_a": [
+      {
+        "clause": "逾期付款违约金",
+        "trigger": ">万分之五/日",
+        "severity": "high",
+        "action": "改为≤万分之三/日，上限10%"
+      },
+      {
+        "clause": "管辖法院",
+        "trigger": "乙方所在地",
+        "severity": "high",
+        "action": "改为甲方所在地法院"
+      },
+      {
+        "clause": "违约金无上限",
+        "trigger": "无上限约定",
+        "severity": "high",
+        "action": "增加上限条款"
+      },
+      {
+        "clause": "验收整改期",
+        "trigger": ">7天或无整改期",
+        "severity": "medium",
+        "action": "改为3-7个工作日"
+      }
+    ],
+    "party_b": [
+      {
+        "clause": "逾期付款违约金",
+        "trigger": "<千分之三/日",
+        "severity": "high",
+        "action": "改为≥千分之五/日"
+      },
+      {
+        "clause": "管辖法院",
+        "trigger": "甲方所在地",
+        "severity": "high",
+        "action": "改为乙方所在地法院"
+      },
+      {
+        "clause": "无逾期解除权",
+        "trigger": "无解除权条款",
+        "severity": "high",
+        "action": "增加逾期15日可解除条款"
+      }
+    ]
+  },
+  "market_benchmarks": {
+    "breach_cap_standard": "合同总价款12个月费用",
+    "nda_standard": 3,
+    "data_export_standard": 90
+  },
+  "formats": {
+    "amount_dual_format_ratio": 0.55,
+    "amount_format_example": "￥488,000元（大写：肆拾捌万捌仟元整）"
+  },
+  "contract_types": {
+    "采购合同": "procurement",
+    "销售合同": "sales",
+    "技术服务合同": "service",
+    "合作协议": "cooperation",
+    "代销合同": "agency",
+    "保密协议": "nda",
+    "赞助协议": "sponsorship"
+  },
+  "output": {
+    "default_dir": "~/Desktop",
+    "redline_suffix": "_修改痕迹",
+    "report_suffix": "_审查报告",
+    "dashboard_suffix": "_审核工作台"
+  }
+}
