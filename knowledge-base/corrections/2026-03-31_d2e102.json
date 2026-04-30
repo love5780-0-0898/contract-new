@@ -1,0 +1,16 @@
+{
+  "contract_type": "技术服务合同",
+  "clause_category": "ip_ownership",
+  "original_clause": "知识产权归双方共同所有",
+  "ai_suggestion": "改为归甲方所有",
+  "user_correction": "改为：基于本合同产生的所有技术成果、代码、文档等知识产权完整归属于甲方，乙方不得保留任何权利",
+  "correction_reason": "CSDN付费委托开发，必须完整获取全部IP，不能共有",
+  "severity": "high",
+  "tags": [
+    "知识产权",
+    "IP",
+    "委托开发"
+  ],
+  "id": "2026-03-31_d2e102",
+  "date": "2026-03-31"
+}

@@ -1,0 +1,16 @@
+{
+  "contract_type": "合作协议",
+  "clause_category": "confidentiality",
+  "original_clause": "保密期限永久有效",
+  "ai_suggestion": "改为3年",
+  "user_correction": "CSDN为甲方时保密期限3年，CSDN为乙方时保密期限2年",
+  "correction_reason": "需根据CSDN角色区分，不能一刀切",
+  "severity": "medium",
+  "tags": [
+    "保密",
+    "confidentiality",
+    "期限"
+  ],
+  "id": "2026-03-31_4632bc",
+  "date": "2026-03-31"
+}

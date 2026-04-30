@@ -1,0 +1,16 @@
+{
+  "contract_type": "销售合同",
+  "clause_category": "breach_penalty",
+  "original_clause": "乙方违约金为合同总价款的50%",
+  "ai_suggestion": "改为30%",
+  "user_correction": "改为：乙方所有违约金累计不超过合同总价款的30%",
+  "correction_reason": "CSDN作为乙方时，违约金上限控制在30%是底线",
+  "severity": "high",
+  "tags": [
+    "违约金",
+    "breach",
+    "上限"
+  ],
+  "id": "2026-03-31_a3af44",
+  "date": "2026-03-31"
+}

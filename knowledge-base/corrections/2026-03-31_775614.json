@@ -1,0 +1,16 @@
+{
+  "contract_type": "采购合同",
+  "clause_category": "payment_terms",
+  "original_clause": "甲方应在收到发票后60日内付款",
+  "ai_suggestion": "改为30日内付款",
+  "user_correction": "改为收到发票后30个工作日内付款",
+  "correction_reason": "CSDN财务流程需要工作日而非自然日",
+  "severity": "high",
+  "tags": [
+    "付款",
+    "payment",
+    "工作日"
+  ],
+  "id": "2026-03-31_775614",
+  "date": "2026-03-31"
+}

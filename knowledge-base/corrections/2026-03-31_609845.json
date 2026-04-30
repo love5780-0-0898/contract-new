@@ -1,0 +1,15 @@
+{
+  "contract_type": "代销合同",
+  "clause_category": "dispute_resolution",
+  "original_clause": "甲方所在地法院",
+  "ai_suggestion": "深圳龙岗区法院",
+  "user_correction": "深圳龙岗区人民法院",
+  "correction_reason": "甲方注册地在深圳",
+  "severity": "high",
+  "tags": [
+    "管辖",
+    "dispute"
+  ],
+  "id": "2026-03-31_609845",
+  "date": "2026-03-31"
+}
